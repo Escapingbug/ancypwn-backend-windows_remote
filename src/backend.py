@@ -140,16 +140,7 @@ def run(config=None, directory=None, image_name=None, priv=None, command=None):
 
 def attach(config, command):
     container_name = _read_container_name(EXIST_FLAG)
-    client = docker.DockerClient(base_url=config['backend']['url'])
-    container = client.containers
-    conts = container.list(filters={'name': container_name})
-    if len(conts) == 0:
-        raise NotRunningException('ancypwn is not running, cannot attach')
-
-    if len(conts) > 1:
-        raise Exception('multiple images of name {} found, unable to execute'.format(image_name))
-
-    _attach_interactive(config['backend']['url'], conts[0].name, command)
+    _attach_interactive(config['backend']['url'], container_name, command)
 
 
 def end(config):
