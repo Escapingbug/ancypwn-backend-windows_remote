@@ -67,14 +67,12 @@ def _end_service():
 def _win_dir_to_wsl(directory, config):
     """windows directory to wsl
     Example:
-        D:\\x -> /mnt/d/x
+        D:\\x -> D:/x
     """
     directory = os.path.realpath(os.path.expanduser(directory))
-    directory = directory.replace(":\\", '\\')
+    directory = directory.replace(":\\", ':/')
     directory = directory.replace('\\', '/')
-    return '{}/{}'.format(
-        config['backend']['shared_folder_prefix'], directory[0].lower()) + \
-                directory[1:]
+    return directory
 
 
 def _figure_volumes(directory, config):
