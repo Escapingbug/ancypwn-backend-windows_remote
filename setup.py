@@ -7,7 +7,7 @@ install_requires = [
 
 setup(
     name='ancypwn-backend-windows_remote',
-    version='0.0.2',
+    version='0.0.3',
     description='ancypwn windows remote backend',
     url='https://github.com/Escapingbug/ancypwn-backend-windows_remote',
     author='Anciety',
